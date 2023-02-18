@@ -31,3 +31,12 @@ fn main() {
     fs::write(&output_file_name, s).expect("write output error");
     println!("output_file : {}", &output_file_name);
 }
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn generate_xx_zlib() {
+        let bytes = miniz_oxide::deflate::compress_to_vec_zlib("hello world!".as_bytes(), 0);
+        fs::write("xx.zlib", bytes);
+    }
+}
