@@ -28,11 +28,11 @@ jobs:
           cd target/release
           pwd
           ls
-          tar czvf ../../custm-dns-server-${{ matrix.os }}.tar.gz decompress
+          tar czvf ../../decompress-${{ matrix.os }}.tar.gz decompress
           cd -
     - name: Publish
       uses: softprops/action-gh-release@v1
       with:
-          files: 'custm-dns-server*'
+          files: 'decompress*'
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
